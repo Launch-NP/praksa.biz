@@ -30,30 +30,28 @@ export function Hero() {
                     courses, and work opportunities. We are here to help you
                     find the best opportunities.
                 </p>
-                <Link href="#about" passHref>
-                    <a className="w-[55%] pt-5 max-sm:w-full">
-                        <Button
-                            className="w-48 h-15 text-xl font-bold flex items-center"
-                            onMouseEnter={() => setHovered(true)}
-                            onMouseLeave={() => setHovered(false)}
-                            aria-label="Read more about Praksa"
+                <Link href="#about" className="w-[55%] pt-5 max-sm:w-full">
+                    <Button
+                        className="w-48 h-15 text-xl font-bold flex items-center"
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}
+                        aria-label="Read more about Praksa"
+                    >
+                        Read More
+                        <motion.div
+                            animate={{
+                                rotate: hovered ? 90 : 0,
+                                scale: hovered ? 1.2 : 1,
+                            }}
+                            transition={{
+                                duration: 0.2,
+                                ease: "easeInOut",
+                            }}
+                            className="ml-2"
                         >
-                            Read More
-                            <motion.div
-                                animate={{
-                                    rotate: hovered ? 90 : 0,
-                                    scale: hovered ? 1.2 : 1,
-                                }}
-                                transition={{
-                                    duration: 0.2,
-                                    ease: "easeInOut",
-                                }}
-                                className="ml-2"
-                            >
-                                <FaArrowRight />
-                            </motion.div>
-                        </Button>
-                    </a>
+                            <FaArrowRight />
+                        </motion.div>
+                    </Button>
                 </Link>
             </div>
         </header>
