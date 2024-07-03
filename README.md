@@ -1,3 +1,5 @@
+### This project is under GNU General Public License v3.0 which prohibits commercial use without patent right grants from the original contributors
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
