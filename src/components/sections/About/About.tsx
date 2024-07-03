@@ -3,19 +3,19 @@ import React from "react";
 import Numbers from "./Numbers";
 
 const Section = ({ imageFirst, title, text }: any) => (
-    <div className="w-full flex px-36">
+    <div className="flex flex-col md:flex-row w-full px-4 md:px-36 py-10">
         {imageFirst && (
-            <div className="w-1/2 flex items-center justify-center py-10">
-                <Image src="/logo.png" alt="logo" width={300} height={300} />
+            <div className="flex items-center justify-center md:w-1/2 py-5">
+                <Image src="/logo.png" alt="logo" width={250} height={250} />
             </div>
         )}
-        <div className="w-1/2 flex justify-center flex-col text-left pl-20 bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-sm">
-            <h1 className="text-4xl font-bold">{title}</h1>
-            <p className="font-light pt-2 w-5/6">{text}</p>
+        <div className="flex justify-center flex-col text-left md:pl-20 bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 shadow-sm max-sm:p-4">
+            <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
+            <p className="font-light pt-2 w-full md:w-5/6">{text}</p>
         </div>
         {!imageFirst && (
-            <div className="w-1/2 flex items-center justify-center py-10">
-                <Image src="/logo.png" alt="logo" width={300} height={300} />
+            <div className="flex items-center justify-center md:w-1/2 py-5 max-sm:hidden">
+                <Image src="/logo.png" alt="logo" width={250} height={250} />
             </div>
         )}
     </div>

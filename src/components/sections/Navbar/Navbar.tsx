@@ -1,13 +1,11 @@
 "use client";
-import { Menu } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Dropdown from "./Dropdown";
 
 const Navbar: React.FC = () => {
     const [isNavbar, setIsNavbar] = useState(false);
-    const { setTheme } = useTheme();
 
     const links = [
         {
@@ -28,7 +26,7 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <header className="flex justify-between items-center sticky top-0 bg-white z-50 h-20 px-20 max-sm:px-5">
+        <header className="flex justify-between items-center sticky top-0 bg-white z-50 h-20 px-20 max-sm:px-10">
             <div className="w-2/6 sm:w-1/5 p-1">
                 <Image
                     height={175}
@@ -54,30 +52,7 @@ const Navbar: React.FC = () => {
                     Contact Us
                 </button>
             </div>
-
-            <button
-                className="block md:hidden"
-                onClick={() => setIsNavbar(!isNavbar)}
-            >
-                <Menu />
-            </button>
-            {isNavbar && (
-                <div className="absolute top-16 left-0  bg-white shadow flex flex-col items-center py-5 md:hidden w-full">
-                    {links.map((link) => (
-                        <Link
-                            className="transition hover:text-[#25BE7C] mb-3"
-                            key={link.id}
-                            href={link.href}
-                            onClick={() => setIsNavbar(false)}
-                        >
-                            {link.title}
-                        </Link>
-                    ))}
-                    <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border  bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                        Contact Us
-                    </button>
-                </div>
-            )}
+            <Dropdown />
         </header>
     );
 };
