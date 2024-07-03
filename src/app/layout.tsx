@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "../components/sections/Navbar/Navbar";
 import Transition from "@/components/ui/transition";
 import ScrollToTop from "@/components/misc/scroll-to-top";
+import Head from "next/head";
 
 const poppins = Poppins({
     weight: ["400", "500", "600", "700"],
@@ -25,9 +26,19 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
+            <Head>
                 <link rel="icon" href="/icon.png" />
-            </head>
+                <title>{metadata.title as string}</title>
+                <meta
+                    name="description"
+                    content={metadata.description as string}
+                />
+                <link rel="icon" href="/icon.png" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+            </Head>
             <body
                 className={cn(
                     "min-h-screen bg-background font-sans antialiased",

@@ -12,9 +12,9 @@ export function Hero() {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className="relative top-0 h-screen">
+        <header className="relative top-0 h-screen">
             <div className="flex justify-center items-center px-4 text-left flex-col sm:pt-36 pt-20">
-                <div className="max-sm:text-4xl text-7xl font-bold text-neutral-900 dark:text-neutral-200 w-[55%] max-sm:w-full">
+                <h1 className="max-sm:text-4xl text-7xl font-bold text-neutral-900 dark:text-neutral-200 w-[55%] max-sm:w-full">
                     Find
                     <FlipWords
                         words={words}
@@ -22,7 +22,7 @@ export function Hero() {
                     />{" "}
                     <br />
                     for you all in one place
-                </div>
+                </h1>
                 <p className="text-neutral-400 dark:text-neutral-400 w-[55%] pt-5 max-sm:w-full">
                     Praksa is a platform that connects students and
                     professionals with companies and schools. We offer a variety
@@ -30,26 +30,32 @@ export function Hero() {
                     courses, and work opportunities. We are here to help you
                     find the best opportunities.
                 </p>
-                <Link className="w-[55%] pt-5 max-sm:w-full" href="#about">
-                    <Button
-                        className="w-48 h-15 text-xl font-bold flex items-center"
-                        onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}
-                    >
-                        Read More
-                        <motion.div
-                            animate={{
-                                rotate: hovered ? 90 : 0,
-                                scale: hovered ? 1.2 : 1,
-                            }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
-                            className="ml-2"
+                <Link href="#about" passHref>
+                    <a className="w-[55%] pt-5 max-sm:w-full">
+                        <Button
+                            className="w-48 h-15 text-xl font-bold flex items-center"
+                            onMouseEnter={() => setHovered(true)}
+                            onMouseLeave={() => setHovered(false)}
+                            aria-label="Read more about Praksa"
                         >
-                            <FaArrowRight />
-                        </motion.div>
-                    </Button>
+                            Read More
+                            <motion.div
+                                animate={{
+                                    rotate: hovered ? 90 : 0,
+                                    scale: hovered ? 1.2 : 1,
+                                }}
+                                transition={{
+                                    duration: 0.2,
+                                    ease: "easeInOut",
+                                }}
+                                className="ml-2"
+                            >
+                                <FaArrowRight />
+                            </motion.div>
+                        </Button>
+                    </a>
                 </Link>
             </div>
-        </div>
+        </header>
     );
 }

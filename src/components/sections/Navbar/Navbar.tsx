@@ -1,12 +1,9 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "./Dropdown";
 
 const Navbar: React.FC = () => {
-    const [isNavbar, setIsNavbar] = useState(false);
-
     const links = [
         {
             id: 1,
@@ -26,34 +23,40 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <header className="flex justify-between items-center sticky top-0 bg-white z-50 h-20 px-20 max-sm:px-10">
+        <nav className="flex justify-between items-center sticky top-0 bg-white z-50 h-20 px-20 max-sm:px-10">
             <div className="w-2/6 sm:w-1/5 p-1">
-                <Image
-                    height={175}
-                    width={175}
-                    src="/logo.png"
-                    alt="logo"
-                    className="max-sm:w-24"
-                />
+                <Link href="/" passHref>
+                    <a>
+                        <Image
+                            height={175}
+                            width={175}
+                            src="/logo.png"
+                            alt="logo"
+                            className="max-sm:w-24"
+                        />
+                    </a>
+                </Link>
             </div>
-            <div className="hidden md:flex items-center gap-10 w-3/5 justify-evenly px-20 ">
+            <ul className="hidden md:flex items-center gap-10 w-3/5 justify-evenly px-20 ">
                 {links.map((link) => (
-                    <Link
-                        className="duration-200 border-b-2 border-b-transparent transition-all font-bold hover:border-b-2 hover:border-blue-300 hover:text-blue-300"
-                        key={link.id}
-                        href={link.href}
-                    >
-                        {link.title}
-                    </Link>
+                    <li key={link.id}>
+                        <Link href={link.href} passHref>
+                            <a className="duration-200 border-b-2 border-b-transparent transition-all font-bold hover:border-b-2 hover:border-blue-300 hover:text-blue-300">
+                                {link.title}
+                            </a>
+                        </Link>
+                    </li>
                 ))}
-            </div>
+            </ul>
             <div className="w-1/5 flex justify-center items-center max-sm:hidden max-md:hidden">
-                <button className="w-3/5 inline-flex h-12 items-center bg-blue-300 rounded justify-center text-white font-bold shadow-sm hover:-translate-y-1 transition-all duration-200 hover:bg-blue-400">
-                    Contact Us
-                </button>
+                <Link href="/contact" passHref>
+                    <a className="w-3/5 inline-flex h-12 items-center bg-blue-300 rounded justify-center text-white font-bold shadow-sm hover:-translate-y-1 transition-all duration-200 hover:bg-blue-400">
+                        Contact Us
+                    </a>
+                </Link>
             </div>
             <Dropdown />
-        </header>
+        </nav>
     );
 };
 

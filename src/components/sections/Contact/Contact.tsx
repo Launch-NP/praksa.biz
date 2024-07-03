@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export function Contact() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // sign up logic was not permitted to be open sourced
     };
     return (
         <div className="relative top-0 h-screen">
